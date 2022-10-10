@@ -53,7 +53,7 @@ class GOIPSMTPHandler:
     async def handle_DATA(self, server, session, envelope):
         print("Got a message from goip")
         msg = envelope.content.decode()
-        text_b64 = email.message_from_string(msg).get_payload()
+        text_b64 = str(email.message_from_string(msg).get_payload())
         text = base64.b64decode(text_b64).decode()
         result = self.regexp.match(text).groupdict()
         if len(result) > 0:
