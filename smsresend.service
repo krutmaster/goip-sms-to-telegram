@@ -1,0 +1,10 @@
+[Unit]
+Description=Goip sms to telegram
+[Service]
+WorkingDirectory=/home/goip-sms-to-telegram
+ExecStart=/usr/bin/python3 bot.py
+Restart=always
+RestartSec=10
+SyslogIdentifier=smsresend
+[Install]
+WantedBy=multi-user.target
